@@ -367,7 +367,7 @@
             <p>Hi! I'm Corey — a Python developer and ML engineer with a foundation in education, automation, and research-based AI systems. I work across disciplines to build reliable tools and intelligent workflows for solving real-world problems.</p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#" class="btn btn-secondary" id="downloadResume">Download Resume</a>
+                <a href="./Corey_Jones_Resume.pdf" class="btn btn-secondary" target="_blank" download>Download Resume</a>
                 <a href="https://github.com/CoreyJness" class="btn btn-secondary" target="_blank">GitHub Profile</a>
             </div>
         </section>
@@ -532,7 +532,7 @@
                     <a href="https://www.linkedin.com/in/coreyjness" target="_blank">
                         🔗 LinkedIn
                     </a>
-                    <a href="#" id="downloadResumeFooter">
+                    <a href="./Corey_Jones_Resume.pdf" target="_blank" download>
                         📄 Download Resume
                     </a>
                 </div>
@@ -547,92 +547,6 @@
     </footer>
 
     <script>
-        // Resume download functionality
-        function createResumeBlob() {
-            const resumeText = `COREY JONES
-t: 606.273.8665 | e: coreyjness@gmail.com | LinkedIn / GitHub: CoreyJness
-
-Outcome oriented professional with a foundation in data analysis, automation, machine learning, and education. Adept at building pipelines, training models, and translating technical concepts for diverse audiences.
-
-TECHNICAL SKILLS
-Programming Languages - Python, SQL
-Data Analysis - Pandas, Numpy, Playwright, Selenium
-ML - PyTorch, Hugging Face, OpenAI, Scikit-Learn
-Visualization - Power BI, Matplotlib, Domo
-Tools - GitHub, Jupyter Notebooks, Google Colab
-
-SOFT SKILLS
-Spoken Languages - English (Native), Spanish (Fluent)
-Socioemotional Learning- Conflict Resolution
-Teaching - complex technical concepts to general audiences
-Conflict resolution and socioemotional learning
-Coordinating groups
-
-FEATURED PROJECTS
-Grant Funding Data Pipeline → github.com/CoreyJness/GrantFundingDataPipeline
-• Automated scraping and consolidation of Excel grant data across states
-• Generated a master dataset and pivot table to summarize education grant allocations
-
-Studybot: Common Core Question Classifier → github.com/CoreyJness/studybot_da_capstone
-• Fine-tuned a BERT model to classify questions by grade level according to CCSS
-• Integrated Hugging Face, Streamlit and Scikit-learn for training, evaluation, and model deployment.
-
-PROFESSIONAL EXPERIENCE
-Outlier — Remote
-AI Trainer — Python Expert | Oct 2024 – Present
-• Designed tasks to identify and resolve failure points in AI
-• Debugged outputs to enhance accuracy and reliability.
-• Contributed to a multimodal project on image recognition
-• Contributed to a project using web scrapers to pull articles into a database that could then be used to train the models.
-
-Burbio — Remote
-Data and Generative AI Engineer | April 2025 – July 2025
-• Designed machine learning models for document classification
-• Created automated webscrapers that continuously check for and update data
-• Used Domo for client facing dashboards
-• Created automation bots to create customer facing profiles
-
-Letcher County Central High School — Whitesburg, KY
-Spanish & Literature Teacher | Aug 2022 – May 2025
-• Used common core standards and evidence based teaching
-• Assisted students and staff with ethical AI solutions
-• Implemented AAPPL exam for national recognition
-
-Freelance ESL Teacher — Remote
-English as a Second Language Teacher | Oct 2017 – Jan 2022
-• Tailored lessons using data insights to meet diverse learner needs
-• Managed online presence and website creation for various clients
-
-EDUCATION:
-Code:You — Data Analysis with Python
-East Tennessee State University — B.A. in Spanish & International Affairs`;
-
-            return new Blob([resumeText], { type: 'text/plain' });
-        }
-
-        function downloadResume() {
-            const blob = createResumeBlob();
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Corey_Jones_Resume.txt';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
-
-        // Add event listeners for resume download
-        document.getElementById('downloadResume').addEventListener('click', function(e) {
-            e.preventDefault();
-            downloadResume();
-        });
-
-        document.getElementById('downloadResumeFooter').addEventListener('click', function(e) {
-            e.preventDefault();
-            downloadResume();
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
