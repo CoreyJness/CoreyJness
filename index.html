@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Corey Jones - Python Developer & ML Engineer specializing in reinforcement learning, NLP, and educational technology">
+    <meta name="keywords" content="Python, Machine Learning, NLP, Reinforcement Learning, Data Science, Education Technology">
+    <meta name="author" content="Corey Jones">
     <title>Corey Jones - Python Developer & ML Engineer</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐍</text></svg>">
     <style>
         * {
             margin: 0;
@@ -65,6 +69,15 @@
             color: #dc2626;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
         main {
             margin-top: 80px;
         }
@@ -80,6 +93,32 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-image {
+            flex: 0 0 200px;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
@@ -91,7 +130,7 @@
 
         .hero p {
             font-size: 1.2rem;
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto 2rem;
             opacity: 0.9;
         }
@@ -161,6 +200,26 @@
             border-radius: 2px;
         }
 
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #dc2626, #1d4ed8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -228,6 +287,32 @@
             left: 0;
         }
 
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(220, 38, 38, 0.1);
+            color: #dc2626;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: rgba(220, 38, 38, 0.2);
+            transform: translateY(-1px);
+        }
+
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
@@ -246,7 +331,7 @@
 
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
@@ -255,11 +340,17 @@
             padding: 2rem;
             border-radius: 15px;
             border-left: 4px solid #dc2626;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
         }
 
         .skill-category h3 {
             color: #dc2626;
             margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
         .skill-category ul {
@@ -269,6 +360,11 @@
         .skill-category li {
             padding: 0.5rem 0;
             border-bottom: 1px solid rgba(220, 38, 38, 0.1);
+            font-weight: 500;
+        }
+
+        .skill-category li:last-child {
+            border-bottom: none;
         }
 
         .contact-info {
@@ -291,11 +387,27 @@
             text-decoration: none;
             color: #dc2626;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
         }
 
         .contact-links a:hover {
             color: #1d4ed8;
+            background: rgba(220, 38, 38, 0.1);
+        }
+
+        .currently-section {
+            background: linear-gradient(135deg, #fef2f2 0%, #eff6ff 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #dc2626;
+        }
+
+        .currently-section h3 {
+            color: #dc2626;
+            margin-bottom: 1rem;
         }
 
         footer {
@@ -312,7 +424,20 @@
                 font-size: 2rem;
             }
             
+            .hero-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .hero-image {
+                order: -1;
+            }
+            
             .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
                 grid-template-columns: 1fr;
             }
             
@@ -320,18 +445,36 @@
                 display: none;
             }
             
+            .mobile-menu-btn {
+                display: block;
+            }
+            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
         }
 
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
 
+        .loading.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
-
-
     <header>
         <nav class="container">
             <div class="logo">Corey Jones</div>
@@ -341,24 +484,45 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="mobile-menu-btn">☰</button>
         </nav>
     </header>
 
     <main class="container">
         <section class="hero" id="about">
-            <h1>Python Developer & ML Engineer</h1>
-            <p>Hi! I'm Corey — a Python developer and ML engineer with a foundation in education, automation, and research-based AI systems. I work across disciplines to build reliable tools and intelligent workflows for solving real-world problems.</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="/CoreyJness/Corey_Jones_Resume.pdf" class="btn btn-secondary" target="_blank" download="Corey_Jones_Resume.pdf">Download Resume</a>
-                <a href="https://github.com/CoreyJness" class="btn btn-secondary" target="_blank">GitHub Profile</a>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Python Developer & ML Engineer</h1>
+                    <p>Hi! I'm Corey — a Python developer and ML engineer with a foundation in education, automation, and research-based AI systems. I work across disciplines to build reliable tools and intelligent workflows for solving real-world problems.</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="/CoreyJness/Corey_Jones_Resume.pdf" class="btn btn-secondary" target="_blank" download="Corey_Jones_Resume.pdf">Download Resume</a>
+                        <a href="https://github.com/CoreyJness" class="btn btn-secondary" target="_blank">GitHub Profile</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Replace with your actual photo -->
+                    <img src="./headshot.png" alt="Corey Jones" class="profile-img">
+                </div>
             </div>
         </section>
+
+        <div class="section">
+            <div class="about-content">
+                <p>With a background in <span class="highlight">education and technology</span>, I specialize in creating intelligent systems that bridge the gap between complex AI research and practical applications. My expertise spans reinforcement learning, natural language processing, and data pipeline automation.</p>
+                <p>I'm passionate about <span class="highlight">educational technology</span> and have developed ML models specifically for classifying academic content, as well as comprehensive data pipelines for analyzing education funding across state systems.</p>
+            </div>
+            
+            <div class="currently-section">
+                <h3>🚀 Currently</h3>
+                <p>I'm actively seeking new opportunities in Python development and ML engineering. I'm particularly interested in roles involving reinforcement learning, NLP applications, or educational technology solutions. Open to both full-time positions and consulting projects.</p>
+            </div>
+        </div>
 
         <section class="section" id="projects">
             <h2>Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card loading">
                     <h3>🎮 PokeBot - Reinforcement Learning Agent</h3>
                     <p>A faithful implementation of "Pokémon Red via Reinforcement Learning", training an agent to reach Cerulean City using PPO + LSTM in a long-horizon, multi-reward setting.</p>
                     <div class="project-highlights">
@@ -369,6 +533,14 @@
                             <li>Full training logs via TensorBoard and modular config system</li>
                         </ul>
                     </div>
+                    <div class="project-links">
+                        <a href="https://github.com/CoreyJness/PokeBot" target="_blank" class="project-link">
+                            🔗 GitHub Repo
+                        </a>
+                        <a href="#" class="project-link">
+                            📊 Training Results
+                        </a>
+                    </div>
                     <div class="tech-stack">
                         <span class="tech-tag">PPO</span>
                         <span class="tech-tag">LSTM</span>
@@ -377,7 +549,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card loading">
                     <h3>📚 Studybot - Educational Question Classifier</h3>
                     <p>A fine-tuned BERT model with a custom dual attention mechanism (DualBert) to classify educational questions by grade level (3rd–12th).</p>
                     <div class="project-highlights">
@@ -388,6 +560,14 @@
                             <li>Built with PyTorch, Hugging Face, and Google Colab</li>
                         </ul>
                     </div>
+                    <div class="project-links">
+                        <a href="https://github.com/CoreyJness/Studybot" target="_blank" class="project-link">
+                            🔗 GitHub Repo
+                        </a>
+                        <a href="#" class="project-link">
+                            🚀 Live Demo
+                        </a>
+                    </div>
                     <div class="tech-stack">
                         <span class="tech-tag">BERT</span>
                         <span class="tech-tag">PyTorch</span>
@@ -396,7 +576,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card loading">
                     <h3>💰 Grant Funding Pipeline</h3>
                     <p>An end-to-end ETL pipeline for scraping and analyzing state-level education funding from Excel spreadsheets published across U.S. education departments.</p>
                     <div class="project-highlights">
@@ -407,6 +587,14 @@
                             <li>Asynchronous I/O with secure Google OAuth2 integration</li>
                         </ul>
                     </div>
+                    <div class="project-links">
+                        <a href="https://github.com/CoreyJness/GrantPipeline" target="_blank" class="project-link">
+                            🔗 GitHub Repo
+                        </a>
+                        <a href="#" class="project-link">
+                            📈 Sample Output
+                        </a>
+                    </div>
                     <div class="tech-stack">
                         <span class="tech-tag">Playwright</span>
                         <span class="tech-tag">Google APIs</span>
@@ -415,16 +603,24 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card loading">
                     <h3>📊 QxGrade Dataset</h3>
                     <p>A curated dataset of Common Core-aligned educational questions labeled by grade level (3–12), designed to support text classification and ed-tech research.</p>
                     <div class="project-highlights">
                         <ul>
-                            <li>Labeled by pedagogical level</li>
+                            <li>5,000+ labeled educational questions across grade levels</li>
                             <li>Suitable for training and evaluation of NLP models</li>
                             <li>Used in the Studybot project above</li>
                             <li>Available on Kaggle for research community</li>
                         </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://www.kaggle.com/datasets/coreyjness/qxgrade" target="_blank" class="project-link">
+                            📊 Kaggle Dataset
+                        </a>
+                        <a href="#" class="project-link">
+                            📄 Documentation
+                        </a>
                     </div>
                     <div class="tech-stack">
                         <span class="tech-tag">Kaggle</span>
@@ -444,6 +640,8 @@
                     <ul>
                         <li>Python</li>
                         <li>SQL</li>
+                        <li>JavaScript</li>
+                        <li>HTML/CSS</li>
                     </ul>
                 </div>
 
@@ -454,6 +652,7 @@
                         <li>Hugging Face Transformers</li>
                         <li>scikit-learn</li>
                         <li>Reinforcement Learning (PPO, LSTM)</li>
+                        <li>BERT & Transformer Models</li>
                     </ul>
                 </div>
 
@@ -464,6 +663,17 @@
                         <li>NumPy</li>
                         <li>openpyxl</li>
                         <li>Google Sheets API</li>
+                        <li>Data Pipeline Design</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Cloud & Infrastructure</h3>
+                    <ul>
+                        <li>Google Cloud Platform (GCP)</li>
+                        <li>Google Colab</li>
+                        <li>GitHub Actions</li>
+                        <li>CI/CD Pipelines</li>
                     </ul>
                 </div>
 
@@ -474,6 +684,7 @@
                         <li>Selenium</li>
                         <li>Google Drive API</li>
                         <li>Google Apps Script</li>
+                        <li>Web Scraping</li>
                     </ul>
                 </div>
 
@@ -482,17 +693,8 @@
                     <ul>
                         <li>Streamlit</li>
                         <li>Jupyter</li>
-                        <li>Google Colab</li>
-                        <li>GitHub Actions</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Monitoring & Ops</h3>
-                    <ul>
                         <li>TensorBoard</li>
-                        <li>GitHub Actions</li>
-                        <li>CI/CD Pipelines</li>
+                        <li>Git & Version Control</li>
                     </ul>
                 </div>
             </div>
@@ -544,7 +746,7 @@
             });
         });
 
-        // Add animation on scroll
+        // Enhanced animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -553,18 +755,27 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('loaded');
                 }
             });
         }, observerOptions);
 
-        // Apply animation to project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+        // Apply animation to elements
+        document.querySelectorAll('.loading').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Simple mobile menu toggle (basic implementation)
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn?.addEventListener('click', () => {
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Add loading delay for staggered animation effect
+        document.querySelectorAll('.project-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
         });
     </script>
 </body>
