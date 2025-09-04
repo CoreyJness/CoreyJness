@@ -1,6 +1,6 @@
 # 👋 Corey Jones — Developer & Machine Learning Engineer
 
-Hi! I’m Corey — a Python developer and ML engineer with a foundation in education, automation, and research-based AI systems. I work across disciplines to build reliable tools and intelligent workflows for solving real-world problems.
+Hi! I’m Corey, a Python developer and ML engineer with a foundation in education, automation, and research-based AI systems. I work across disciplines to build reliable tools and intelligent workflows for solving real-world problems.
 
 My projects span:
 
