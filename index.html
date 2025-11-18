@@ -38,10 +38,10 @@
         }
 
         .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 2rem;
+            align-items: start;
         }
 
         .hero-image {
@@ -58,8 +58,18 @@
         }
 
         .hero-text {
-            flex: 1;
             min-width: 300px;
+        }
+
+        .hero-skills {
+            min-width: 280px;
+        }
+
+        .hero-skills h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
         }
 
         .hero-text h1 {
@@ -225,8 +235,8 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8rem;
             text-align: center;
         }
 
@@ -234,29 +244,29 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.3rem;
             transition: transform 0.3s ease;
         }
 
         .skill-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
 
         .skill-icon {
-            font-size: 3rem;
+            font-size: 2rem;
             color: #dc2626;
         }
 
         .skill-icon img {
-            width: 48px;
-            height: 48px;
+            width: 32px;
+            height: 32px;
             object-fit: contain;
         }
 
         .skill-name {
             font-weight: 600;
             color: #333;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
         }
 
         footer {
@@ -268,8 +278,13 @@
 
         @media (max-width: 768px) {
             .hero-content {
-                flex-direction: column;
+                grid-template-columns: 1fr;
+                justify-items: center;
                 text-align: center;
+            }
+
+            .hero-skills {
+                width: 100%;
             }
 
             .hero-text h1 {
@@ -285,8 +300,7 @@
             }
 
             .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                gap: 1.5rem;
+                grid-template-columns: repeat(4, 1fr);
             }
         }
     </style>
@@ -305,6 +319,75 @@
                     <div class="cta-buttons">
                         <a href="/CoreyJness/Corey_Jones_Resume.pdf" class="btn btn-primary" download><i class="fas fa-download"></i> Resume</a>
                         <a href="https://github.com/CoreyJness" class="btn btn-secondary" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+                <div class="hero-skills">
+                    <h3>Tech Stack</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-python"></i></div>
+                            <div class="skill-name">Python</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-fire"></i></div>
+                            <div class="skill-name">PyTorch</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                            <div class="skill-name">BERT</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-database"></i></div>
+                            <div class="skill-name">SQL</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-table"></i></div>
+                            <div class="skill-name">pandas</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-google"></i></div>
+                            <div class="skill-name">GCP</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-js"></i></div>
+                            <div class="skill-name">JavaScript</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-spider"></i></div>
+                            <div class="skill-name">Playwright</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                            <div class="skill-name">Git</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="skill-name">Streamlit</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-phone"></i></div>
+                            <div class="skill-name">Twilio</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+                            <div class="skill-name">LSTM</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
+                            <div class="skill-name">RAG</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-cube"></i></div>
+                            <div class="skill-name">TensorBoard</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div class="skill-name">OAuth2</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-code"></i></div>
+                            <div class="skill-name">APIs</div>
+                        </div>
                     </div>
                 </div>
             </div>
