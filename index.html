@@ -183,8 +183,8 @@
 
         .project-card h3 {
             color: #dc2626;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -193,23 +193,36 @@
         .project-card p {
             color: #666;
             margin-bottom: 1rem;
-            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        .tech-stack {
+        .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 1rem;
             margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
         }
 
-        .tech-tag {
-            background: rgba(220, 38, 38, 0.1);
+        .project-tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .project-tech-icon {
+            font-size: 1.5rem;
             color: #dc2626;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
+        }
+
+        .project-tech-name {
+            font-size: 0.7rem;
+            color: #333;
+            font-weight: 600;
         }
 
         .project-link {
@@ -224,13 +237,110 @@
             font-size: 0.9rem;
             font-weight: 500;
             transition: all 0.3s ease;
-            margin-top: auto;
             width: fit-content;
         }
 
         .project-link:hover {
             background: #dc2626;
             color: white;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, #dc2626, #1d4ed8);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item[data-duration="short"] .timeline-content {
+            min-height: 120px;
+        }
+
+        .timeline-item[data-duration="medium"] .timeline-content {
+            min-height: 200px;
+        }
+
+        .timeline-item[data-duration="long"] .timeline-content {
+            min-height: 400px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 2;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            grid-column: 1;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            grid-column: 1;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-date {
+            grid-column: 2;
+        }
+
+        .timeline-content {
+            background: linear-gradient(135deg, #fef2f2 0%, #eff6ff 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 3px solid #dc2626;
+        }
+
+        .timeline-content h3 {
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content .company {
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .timeline-date {
+            display: flex;
+            align-items: center;
+            color: #dc2626;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: #dc2626;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
         }
 
         .skills-grid {
@@ -301,6 +411,32 @@
 
             .skills-grid {
                 grid-template-columns: repeat(5, 1fr);
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                padding-left: 50px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(odd) .timeline-content {
+                grid-column: 1;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(even) .timeline-date,
+            .timeline-item:nth-child(odd) .timeline-date {
+                grid-column: 1;
+                text-align: left;
+                margin-bottom: 0.5rem;
+            }
+
+            .timeline-dot {
+                left: 20px;
             }
         }
     </style>
@@ -394,12 +530,24 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <h3><i class="fas fa-solar-panel"></i> RangrSolar CRM</h3>
-                    <p>Sales CRM platform built on Palantir Foundry with lead management, RAG chatbot advisor, Twilio integration, and Project Sunroof API for solar availability analysis.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Palantir Foundry</span>
-                        <span class="tech-tag">RAG</span>
-                        <span class="tech-tag">Twilio</span>
-                        <span class="tech-tag">APIs</span>
+                    <p>Sales CRM platform with lead management, AI chatbot advisor, and solar availability analysis.</p>
+                    <div class="project-tech">
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fab fa-python"></i></div>
+                            <div class="project-tech-name">Python</div>
+                        </div>
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fas fa-project-diagram"></i></div>
+                            <div class="project-tech-name">RAG</div>
+                        </div>
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fas fa-phone"></i></div>
+                            <div class="project-tech-name">Twilio</div>
+                        </div>
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fas fa-code"></i></div>
+                            <div class="project-tech-name">APIs</div>
+                        </div>
                     </div>
                     <a href="https://github.com/CoreyJness/RangrSolar" target="_blank" class="project-link">
                         <i class="fab fa-github"></i> View Project
@@ -408,12 +556,20 @@
 
                 <div class="project-card">
                     <h3><i class="fas fa-gamepad"></i> PokeBot - RL Agent</h3>
-                    <p>Reinforcement learning agent trained to play Pokémon Red using PPO + LSTM with 50M+ training steps and multi-component reward shaping.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">PPO</span>
-                        <span class="tech-tag">LSTM</span>
-                        <span class="tech-tag">Gym</span>
-                        <span class="tech-tag">TensorBoard</span>
+                    <p>Reinforcement learning agent using PPO + LSTM with 50M+ training steps.</p>
+                    <div class="project-tech">
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fab fa-python"></i></div>
+                            <div class="project-tech-name">Python</div>
+                        </div>
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fas fa-fire"></i></div>
+                            <div class="project-tech-name">PyTorch</div>
+                        </div>
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fas fa-project-diagram"></i></div>
+                            <div class="project-tech-name">TensorFlow</div>
+                        </div>
                     </div>
                     <a href="https://github.com/CoreyJness/pokebot" target="_blank" class="project-link">
                         <i class="fab fa-github"></i> View Project
@@ -422,11 +578,24 @@
 
                 <div class="project-card">
                     <h3><i class="fas fa-graduation-cap"></i> Studybot</h3>
-                    <p>Fine-tuned BERT model with dual attention mechanism to classify educational questions by grade level (3rd–12th).</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">BERT</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">Streamlit</span>
+                    <p>Fine-tuned BERT model to classify educational questions by grade level.</p>
+                    <div class="project-tech">
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fab fa-python"></i></div>
+                            <div class="project-tech-name">Python</div>
+                        </div>
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fas fa-brain"></i></div>
+                            <div class="project-tech-name">BERT</div>
+                        </div>
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fas fa-fire"></i></div>
+                            <div class="project-tech-name">PyTorch</div>
+                        </div>
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="project-tech-name">Streamlit</div>
+                        </div>
                     </div>
                     <a href="https://github.com/CoreyJness/studybot_da_capstone" target="_blank" class="project-link">
                         <i class="fab fa-github"></i> View Project
@@ -435,11 +604,24 @@
 
                 <div class="project-card">
                     <h3><i class="fas fa-money-bill-wave"></i> Grant Funding Pipeline</h3>
-                    <p>End-to-end ETL pipeline for scraping and analyzing state-level education funding data with automated Google Drive integration.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Playwright</span>
-                        <span class="tech-tag">Google APIs</span>
-                        <span class="tech-tag">OAuth2</span>
+                    <p>ETL pipeline for scraping and analyzing state education funding data.</p>
+                    <div class="project-tech">
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fab fa-python"></i></div>
+                            <div class="project-tech-name">Python</div>
+                        </div>
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fas fa-spider"></i></div>
+                            <div class="project-tech-name">Playwright</div>
+                        </div>
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fab fa-google"></i></div>
+                            <div class="project-tech-name">GCP</div>
+                        </div>
+                        <div class="project-tech-item">
+                            <div class="project-tech-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div class="project-tech-name">OAuth2</div>
+                        </div>
                     </div>
                     <a href="https://github.com/CoreyJness/GrantFundingDataPipeline" target="_blank" class="project-link">
                         <i class="fab fa-github"></i> View Project
@@ -448,56 +630,37 @@
             </div>
         </section>
 
-        <section class="section" id="skills">
-            <h2>Tech Stack</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-python"></i></div>
-                    <div class="skill-name">Python</div>
+        <section class="section" id="experience">
+            <h2>Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-duration="medium">
+                    <div class="timeline-date">Oct 2024 - Present</div>
+                    <div class="timeline-content">
+                        <h3>AI Trainer</h3>
+                        <div class="company">Outlier/Alignerr - Remote</div>
+                        <p>Designed and evaluated tasks to improve AI model reasoning across multimodal datasets. Debugged model outputs and contributed to AI projects involving image recognition and PostgreSQL troubleshooting.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-fire"></i></div>
-                    <div class="skill-name">PyTorch</div>
+
+                <div class="timeline-item" data-duration="short">
+                    <div class="timeline-date">Apr 2025 - Jul 2025</div>
+                    <div class="timeline-content">
+                        <h3>Data and AI Engineer</h3>
+                        <div class="company">Burbio - Remote</div>
+                        <p>Designed ML models for document classification, improving data processing efficiency by 33%. Built automation bots for dashboard generation in Domo and designed ETL pipelines for continuous data capture and validation.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                    <div class="skill-name">Transformers</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-database"></i></div>
-                    <div class="skill-name">SQL</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-table"></i></div>
-                    <div class="skill-name">pandas</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-google"></i></div>
-                    <div class="skill-name">GCP</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
-                    <div class="skill-name">RL</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-comment-dots"></i></div>
-                    <div class="skill-name">NLP</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-js"></i></div>
-                    <div class="skill-name">JavaScript</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-spider"></i></div>
-                    <div class="skill-name">Playwright</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-                    <div class="skill-name">Git</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="skill-name">Streamlit</div>
+
+                <div class="timeline-item" data-duration="long">
+                    <div class="timeline-date">Jul 2022 - May 2025</div>
+                    <div class="timeline-content">
+                        <h3>Language and Literature Teacher</h3>
+                        <div class="company">Letcher County Central High School - Whitesburg, KY</div>
+                        <p>Used Common Core standards and evidence-based teaching with above-average evaluations. Assisted students and staff with ethical AI solutions and implemented AAPPL exam achieving results above national average.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
                 </div>
             </div>
         </section>
